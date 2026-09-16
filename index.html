@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segesta — Cinematic Parallax Experience</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============ GLOBAL NAV ============ -->
+  <nav class="global-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <a href="#sec1" class="nav-link">Our Story</a>
+      <a href="#sec2" class="nav-link">SolutionLab</a>
+      <a href="#sec3" class="nav-link">Clients</a>
+    </div>
+    <a href="#sec1" class="nav-logo" aria-label="Home">
+      <svg viewBox="0 0 40 36" width="30" height="27" fill="currentColor" aria-hidden="true">
+        <polygon points="20,0 40,36 0,36"/>
+      </svg>
+    </a>
+    <div class="nav-right">
+      <a href="#sec4" class="nav-link">Portfolio</a>
+      <a href="#sec5" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link nav-link--btn">Contact</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+    <a href="#sec1" class="mobile-link">Our Story</a>
+    <a href="#sec2" class="mobile-link">SolutionLab</a>
+    <a href="#sec3" class="mobile-link">Clients</a>
+    <a href="#sec4" class="mobile-link">Portfolio</a>
+    <a href="#sec5" class="mobile-link">Blog</a>
+    <a href="#contact" class="mobile-link mobile-link--btn">Contact</a>
+  </div>
+
+  <!-- ============ SCROLL TRACK (900vh) ============ -->
+  <div class="scroll-container" id="scrollTrack">
+
+    <!-- ============ FIXED VIEWPORT ============ -->
+    <div class="viewport-wrapper">
+      <div class="canvas-16-9" id="mainCanvas">
+
+        <!-- ======== SCENE 1: City & River (0.00–1.00) ======== -->
+        <div class="scene" id="scene1">
+          <!-- L1: Sky -->
+          <div class="scene-layer l-sky" data-speed="0.05" id="s1-sky">
+            <div class="s1__sky-grad"></div>
+            <div class="s1__stars">
+              <div class="s1__star"></div><div class="s1__star"></div><div class="s1__star"></div>
+              <div class="s1__star"></div><div class="s1__star"></div><div class="s1__star"></div>
+            </div>
+          </div>
+          <!-- L2: Distant mountains -->
+          <div class="scene-layer l-mountains" data-speed="0.10" id="s1-mountains">
+            <div class="s1__mountain s1__mountain--far-l"></div>
+            <div class="s1__mountain s1__mountain--far-c"></div>
+            <div class="s1__mountain s1__mountain--far-r"></div>
+          </div>
+          <!-- L3: Back buildings -->
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="s1-backbldg">
+            <div class="s1__bldg s1__bldg--bl1"></div>
+            <div class="s1__bldg s1__bldg--bl2"></div>
+            <div class="s1__bldg s1__bldg--bl3"></div>
+            <div class="s1__bldg s1__bldg--br1"></div>
+            <div class="s1__bldg s1__bldg--br2"></div>
+            <div class="s1__bldg s1__bldg--br3"></div>
+          </div>
+          <!-- L4: Front buildings -->
+          <div class="scene-layer l-front-bldg" data-speed="0.35" id="s1-frontbldg">
+            <div class="s1__bldg s1__bldg--fl1"></div>
+            <div class="s1__bldg s1__bldg--fl2"></div>
+            <div class="s1__bldg s1__bldg--fl3"></div>
+            <div class="s1__bldg s1__bldg--fl4"></div>
+            <div class="s1__bldg s1__bldg--fr1"></div>
+            <div class="s1__bldg s1__bldg--fr2"></div>
+            <div class="s1__bldg s1__bldg--fr3"></div>
+            <div class="s1__bldg s1__bldg--fr4"></div>
+          </div>
+          <!-- L5: Street lights -->
+          <div class="scene-layer l-lights" data-speed="0.45" id="s1-lights">
+            <div class="s1__light s1__light--l1"></div>
+            <div class="s1__light s1__light--l2"></div>
+            <div class="s1__light s1__light--l3"></div>
+            <div class="s1__light s1__light--l4"></div>
+            <div class="s1__light s1__light--l5"></div>
+            <div class="s1__light s1__light--r1"></div>
+            <div class="s1__light s1__light--r2"></div>
+            <div class="s1__light s1__light--r3"></div>
+            <div class="s1__light s1__light--r4"></div>
+            <div class="s1__light s1__light--r5"></div>
+          </div>
+          <!-- L6: River -->
+          <div class="scene-layer l-river" data-speed="0.55" id="s1-river">
+            <div class="s1__river"></div>
+            <div class="s1__river-flow"></div>
+            <div class="s1__waterfall-top"></div>
+          </div>
+          <!-- L7: Foreground rocks -->
+          <div class="scene-layer l-fg" data-speed="0.80" id="s1-fg">
+            <div class="s1__rock s1__rock--1"></div>
+            <div class="s1__rock s1__rock--2"></div>
+            <div class="s1__rock s1__rock--3"></div>
+            <div class="s1__rock s1__rock--4"></div>
+            <div class="s1__rock s1__rock--5"></div>
+          </div>
+          <!-- L8: Title -->
+          <div class="scene-layer l-content" data-speed="1.00" id="s1-content">
+            <div class="s1__title">
+              <h1 class="s1__title-text">SEGESTA</h1>
+              <p class="s1__title-sub">INNOVATIVE SOLUTIONS</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== TRANSITION 1: River → Waterfall (1.00–2.00) ======== -->
+        <div class="scene scene--hidden" id="sceneT1">
+          <div class="scene-layer l-sky" data-speed="0.05" id="st1-sky"></div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="st1-mountains"></div>
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="st1-backbldg"></div>
+          <div class="scene-layer l-front-bldg" data-speed="0.35" id="st1-frontbldg"></div>
+          <div class="scene-layer l-lights" data-speed="0.45" id="st1-lights">
+            <div class="st1__light"></div><div class="st1__light"></div><div class="st1__light"></div>
+            <div class="st1__light"></div><div class="st1__light"></div>
+          </div>
+          <div class="scene-layer l-river" data-speed="0.55" id="st1-river">
+            <div class="st1__water-channel"></div>
+            <div class="st1__waterfall"></div>
+            <div class="st1__waterfall-foam"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.80" id="st1-fg">
+            <div class="st1__rocks"></div>
+          </div>
+          <div class="scene-layer l-content" data-speed="1.00" id="st1-content">
+            <div class="st1__heading" style="position:absolute;left:80px;bottom:120px;">
+              <h2 style="font-size:64px;font-weight:700;line-height:1.05;">Our Mission</h2>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== SCENE 2: Our Mission (2.00–3.00) ======== -->
+        <div class="scene scene--hidden" id="scene2">
+          <div class="scene-layer l-sky" data-speed="0.05" id="s2-sky">
+            <div class="s2__bg"></div>
+          </div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="s2-atmos">
+            <div class="s2__clouds"></div>
+          </div>
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="s2-bldg-left">
+            <div class="s2__bldg"></div>
+            <div class="s2__bldg s2__bldg--2"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.35" id="s2-bldg-right">
+            <div class="s2__rooms">
+              <div class="s2__room s2__room--top"></div>
+              <div class="s2__room s2__room--mid"></div>
+              <div class="s2__room s2__room--bot"></div>
+            </div>
+          </div>
+          <div class="scene-layer l-lights" data-speed="0.45" id="s2-lights">
+            <div class="s2__light"></div><div class="s2__light"></div><div class="s2__light"></div>
+          </div>
+          <div class="scene-layer l-river" data-speed="0.55" id="s2-waterfall">
+            <div class="s2__waterfall-col"></div>
+            <div class="s2__waterfall-glow"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.80" id="s2-fg">
+            <div class="s2__person"></div>
+            <div class="s2__desk"></div>
+            <div class="s2__floor-glow"></div>
+          </div>
+          <div class="scene-layer l-content" data-speed="1.00" id="s2-content">
+            <div class="s2__text">
+              <h2 class="s2__heading">Our Mission</h2>
+              <div class="s2__divider"></div>
+              <p class="s2__body">At Segesta, our purpose is to empower digital relationships through mobility. By designing and developing custom apps and mobile web-apps, we act as a guide — leading our clients through the process of building complex digital products.</p>
+              <p class="s2__body">By designing and developing custom apps and mobile web-apps, we act as a guide — leading our clients.</p>
+              <a href="#contact" class="s2__cta">Let's Build!</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== TRANSITION 2: Mission → Advantages (3.00–4.00) ======== -->
+        <div class="scene scene--hidden" id="sceneT2">
+          <div class="scene-layer l-sky" data-speed="0.05" id="st2-sky"></div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="st2-atmos">
+            <div class="st2__remnant"></div>
+          </div>
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="st2-arch">
+            <div class="st2__rooms-ghost"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.35" id="st2-mid">
+            <div class="st2__vlight"></div>
+            <div class="st2__vlight st2__vlight--2"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.70" id="st2-fg">
+            <div class="st2__dark-mass"></div>
+          </div>
+          <div class="scene-layer l-content" data-speed="1.00" id="st2-content">
+            <h2 class="st2__heading" style="position:absolute;right:100px;bottom:140px;font-size:58px;font-weight:700;">Our Advantages</h2>
+          </div>
+        </div>
+
+        <!-- ======== SCENE 3: Our Advantages (4.00–5.00) ======== -->
+        <div class="scene scene--hidden" id="scene3">
+          <div class="scene-layer l-sky" data-speed="0.05" id="s3-sky">
+            <div class="s3__bg"></div>
+          </div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="s3-atmos">
+            <div class="s3__vlight-bg"></div>
+          </div>
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="s3-wheel-back">
+            <div class="s3__wheel-ring s3__wheel-ring--outer"></div>
+            <div class="s3__wheel-ring s3__wheel-ring--mid"></div>
+            <div class="s3__wheel-ring s3__wheel-ring--inner"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.35" id="s3-wheel-front">
+            <div class="s3__wheel-spoke s3__wheel-spoke--1"></div>
+            <div class="s3__wheel-spoke s3__wheel-spoke--2"></div>
+            <div class="s3__wheel-spoke s3__wheel-spoke--3"></div>
+            <div class="s3__wheel-spoke s3__wheel-spoke--4"></div>
+            <div class="s3__wheel-glow"></div>
+            <div class="s3__wheel-base"></div>
+          </div>
+          <div class="scene-layer l-lights" data-speed="0.45" id="s3-interface">
+            <div class="s3__rail"></div>
+            <div class="s3__screens">
+              <div class="s3__screen"></div>
+              <div class="s3__screen"></div>
+              <div class="s3__screen"></div>
+            </div>
+            <div class="s3__iface-person"></div>
+          </div>
+          <div class="scene-layer l-content" data-speed="1.00" id="s3-content">
+            <div class="s3__text">
+              <h2 class="s3__heading">Our Advantages</h2>
+              <div class="s3__divider"></div>
+              <div class="s3__blocks">
+                <div class="s3__block">
+                  <h3 class="s3__sub">We've Been There.</h3>
+                  <p class="s3__body">In just over four years we've founded our own start-up, built over 100 app projects for our clients, and created proprietary software to make our own business more efficient.</p>
+                  <p class="s3__body">So if you need help growing your new venture, or want to lift your existing business to new heights with the help of custom applications, we're your team.</p>
+                </div>
+                <div class="s3__block">
+                  <h3 class="s3__sub">Boldly Transparent.</h3>
+                  <p class="s3__body">We know how easy it is for complex projects like custom applications to go overbudget. We don't want that to happen to you.</p>
+                  <p class="s3__body">At DesignLab, we've crafted our development processes for maximum efficiency and transparency, helping you manage your costs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== TRANSITION 3: Advantages → Model (5.00–6.00) ======== -->
+        <div class="scene scene--hidden" id="sceneT3">
+          <div class="scene-layer l-sky" data-speed="0.05" id="st3-sky"></div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="st3-atmos"></div>
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="st3-arch">
+            <div class="st3__wheel-ghost"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.40" id="st3-mid">
+            <div class="st3__vlight-center"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.65" id="st3-fg">
+            <div class="st3__dark-platform"></div>
+          </div>
+          <div class="scene-layer l-content" data-speed="1.00" id="st3-content">
+            <div class="st3__text" style="position:absolute;left:80px;bottom:100px;">
+              <h3 style="font-size:22px;font-weight:700;margin-bottom:8px;">A Model For Success.</h3>
+              <p style="font-size:14px;color:rgba(255,255,255,.65);line-height:1.65;max-width:420px;">We've crafted a modular approach to conceptualizing, designing, implementing, and testing on custom software projects over time.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== SCENE 4: A Model For Success (6.00–7.00) ======== -->
+        <div class="scene scene--hidden" id="scene4">
+          <div class="scene-layer l-sky" data-speed="0.05" id="s4-sky">
+            <div class="s4__bg"></div>
+          </div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="s4-scaffold">
+            <div class="s4__scaffold"></div>
+          </div>
+          <div class="scene-layer l-back-bldg" data-speed="0.20" id="s4-vlights">
+            <div class="s4__vlight"></div>
+            <div class="s4__vlight s4__vlight--2"></div>
+            <div class="s4__vlight s4__vlight--3"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.35" id="s4-spheres">
+            <div class="s4__sphere s4__sphere--1"></div>
+            <div class="s4__sphere s4__sphere--2"></div>
+            <div class="s4__sphere s4__sphere--3"></div>
+            <div class="s4__sphere-platform"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.60" id="s4-fg">
+            <div class="s4__person"></div>
+            <div class="s4__interface"></div>
+          </div>
+          <div class="scene-layer l-content" data-speed="1.00" id="s4-content">
+            <div class="s4__text">
+              <h2 class="s4__heading">A Model For Success.</h2>
+              <p class="s4__body">We've crafted a modular approach to conceptualizing, designing, implementing, and — most importantly — testing on custom software projects over time.</p>
+              <h3 class="s4__sub">Attentiveness as a Priority.</h3>
+              <p class="s4__body">You and your project are important to us. Once we kick things off, you'll receive updates on your project in two ways.</p>
+              <p class="s4__body">First, your project manager — who knows and understands your business and goals — will be in touch with you during each phase of development.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ======== TRANSITION 4: Model → Landscape (7.00–8.00) ======== -->
+        <div class="scene scene--hidden" id="sceneT4">
+          <div class="scene-layer l-sky" data-speed="0.05" id="st4-sky">
+            <div class="st4__warm-sky"></div>
+          </div>
+          <div class="scene-layer l-mountains" data-speed="0.10" id="st4-arch">
+            <div class="st4__industrial-remnant"></div>
+            <div class="st4__arch-frame"></div>
+          </div>
+          <div class="scene-layer l-back-bldg" data-speed="0.18" id="st4-pillars">
+            <div class="st4__pillar"></div>
+            <div class="st4__pillar"></div>
+            <div class="st4__pillar"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.28" id="st4-mid">
+            <div class="st4__mountains-far"></div>
+            <div class="st4__mountains-near"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.55" id="st4-fg">
+            <div class="st4__dark-mass"></div>
+          </div>
+        </div>
+
+        <!-- ======== SCENE 5: Landscape / Sunset (8.00–9.00) ======== -->
+        <div class="scene scene--hidden" id="scene5">
+          <div class="scene-layer l-sky" data-speed="0.02" id="s5-sky">
+            <div class="s5__sky-grad"></div>
+            <div class="s5__sun"></div>
+            <div class="s5__sun-glow"></div>
+          </div>
+          <div class="scene-layer l-mountains" data-speed="0.06" id="s5-clouds">
+            <div class="s5__cloud s5__cloud--1"></div>
+            <div class="s5__cloud s5__cloud--2"></div>
+            <div class="s5__birds">
+              <div class="s5__bird"></div>
+              <div class="s5__bird s5__bird--2"></div>
+              <div class="s5__bird s5__bird--3"></div>
+            </div>
+          </div>
+          <div class="scene-layer l-back-bldg" data-speed="0.12" id="s5-mountains">
+            <div class="s5__mountain s5__mountain--large"></div>
+            <div class="s5__mountain s5__mountain--mid"></div>
+            <div class="s5__mountain s5__mountain--small"></div>
+          </div>
+          <div class="scene-layer l-front-bldg" data-speed="0.22" id="s5-water">
+            <div class="s5__water"></div>
+            <div class="s5__reflection"></div>
+          </div>
+          <div class="scene-layer l-fg" data-speed="0.45" id="s5-rocks">
+            <div class="s5__rock s5__rock--1"></div>
+            <div class="s5__rock s5__rock--2"></div>
+            <div class="s5__rock s5__rock--3"></div>
+          </div>
+        </div>
+
+      </div><!-- /canvas-16-9 -->
+    </div><!-- /viewport-wrapper -->
+
+  </div><!-- /scroll-container -->
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="contact">
+    <div class="footer__inner">
+      <svg viewBox="0 0 40 36" width="28" height="25" fill="currentColor" aria-hidden="true"><polygon points="20,0 40,36 0,36"/></svg>
+      <p class="footer__text">Crafting immersive digital worlds, one pixel at a time.</p>
+      <div class="footer__links">
+        <a href="#sec1" class="footer__link">Our Story</a>
+        <a href="#sec3" class="footer__link">Clients</a>
+        <a href="#sec4" class="footer__link">Portfolio</a>
+        <a href="#sec5" class="footer__link">Blog</a>
+        <a href="#contact" class="footer__link footer__link--btn">Contact</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 Segesta. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
