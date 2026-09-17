@@ -29,7 +29,6 @@
     </button>
   </nav>
 
-  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile menu">
     <a href="#section-1" class="mobile-link" data-section="s1">Our Story</a>
     <a href="#section-2" class="mobile-link" data-section="s2">Mission</a>
@@ -41,86 +40,115 @@
 
   <main class="main-content">
 
-    <!-- STAGE 01: HERO (City Skyline & River) -->
+    <!-- ===================== SECTION 1: HERO ===================== -->
     <section class="chapter chapter--hero" id="section-1">
       <div class="scene">
+
+        <!-- BG: Sky gradient -->
         <div class="scene__background parallax-slow">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
-              <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#0a0620"/>
-                <stop offset="30%" stop-color="#120B29"/>
-                <stop offset="55%" stop-color="#1C1236"/>
-                <stop offset="72%" stop-color="#3a2068"/>
-                <stop offset="85%" stop-color="#6a3880"/>
-                <stop offset="95%" stop-color="#c06838"/>
-                <stop offset="100%" stop-color="#FF7B42"/>
+              <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#c06838"/><stop offset="20%" stop-color="#9a4878"/>
+                <stop offset="45%" stop-color="#5a2878"/><stop offset="70%" stop-color="#2a1650"/>
+                <stop offset="100%" stop-color="#0d0624"/>
               </linearGradient>
-              <filter id="glowGold"><feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FFAC43" flood-opacity=".45"/></filter>
-              <filter id="mist"><feGaussianBlur in="SourceGraphic" stdDeviation="8"/></filter>
             </defs>
-            <rect width="1920" height="1080" fill="url(#heroSky)"/>
-            <g opacity=".4">
-              <circle cx="150" cy="80" r="2" fill="#fff"/><circle cx="400" cy="120" r="1.5" fill="#fff"/>
-              <circle cx="700" cy="60" r="1.8" fill="#fff"/><circle cx="1100" cy="90" r="1.5" fill="#fff"/>
-              <circle cx="1500" cy="70" r="2" fill="#fff"/><circle cx="1750" cy="110" r="1.5" fill="#fff"/>
+            <rect width="1920" height="1080" fill="url(#skyGrad)"/>
+            <!-- Animated clouds -->
+            <g class="cloud-layer" opacity=".3">
+              <ellipse class="cloud" cx="300" cy="200" rx="180" ry="40" fill="#d88090"/>
+              <ellipse class="cloud" cx="500" cy="210" rx="140" ry="35" fill="#c87888"/>
+              <ellipse class="cloud" cx="1400" cy="180" rx="200" ry="45" fill="#d88090"/>
+              <ellipse class="cloud" cx="1650" cy="195" rx="160" ry="38" fill="#c87888"/>
+              <ellipse class="cloud" cx="900" cy="250" rx="120" ry="30" fill="#b06878"/>
             </g>
-            <g opacity=".6">
-              <polygon vector-effect="non-scaling-stroke" points="0,750 200,520 400,750" fill="#2a1858"/>
-              <polygon vector-effect="non-scaling-stroke" points="300,750 520,480 740,750" fill="#341e62"/>
-              <polygon vector-effect="non-scaling-stroke" points="650,750 900,440 1150,750" fill="#221450"/>
-              <polygon vector-effect="non-scaling-stroke" points="1000,750 1250,500 1500,750" fill="#2e1a5c"/>
-              <polygon vector-effect="non-scaling-stroke" points="1400,750 1650,460 1920,750" fill="#381f66"/>
+            <!-- Faceted mountains -->
+            <g opacity=".7">
+              <polygon vector-effect="non-scaling-stroke" points="0,750 180,480 360,750" fill="#4a2068"/>
+              <polygon vector-effect="non-scaling-stroke" points="250,750 480,420 710,750" fill="#3a1858"/>
+              <polygon vector-effect="non-scaling-stroke" points="550,750 800,380 1050,750" fill="#5a2878"/>
+              <polygon vector-effect="non-scaling-stroke" points="850,750 1120,400 1390,750" fill="#4a2068"/>
+              <polygon vector-effect="non-scaling-stroke" points="1200,750 1450,430 1700,750" fill="#3a1858"/>
+              <polygon vector-effect="non-scaling-stroke" points="1550,750 1780,460 1920,750" fill="#4a2068"/>
+            </g>
+            <!-- Clouds behind mountains -->
+            <g opacity=".25">
+              <ellipse cx="400" cy="500" rx="200" ry="50" fill="#c08090"/>
+              <ellipse cx="900" cy="480" rx="250" ry="55" fill="#b87888"/>
+              <ellipse cx="1500" cy="510" rx="180" ry="45" fill="#c08090"/>
             </g>
           </svg>
         </div>
 
+        <!-- MID: Buildings + river -->
         <div class="scene__midground parallax-mid">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <!-- Left buildings -->
             <g>
-              <rect x="0" y="480" width="60" height="270" fill="#0e0824"/>
-              <rect x="70" y="520" width="80" height="230" fill="#110a28"/>
-              <rect x="160" y="440" width="70" height="310" fill="#0c0720"/>
-              <rect x="240" y="500" width="90" height="250" fill="#0f0926"/>
-              <rect x="340" y="460" width="60" height="290" fill="#0d0822"/>
+              <rect x="0" y="420" width="70" height="330" fill="#1a0e38"/>
+              <rect x="80" y="380" width="80" height="370" fill="#150b30"/>
+              <rect x="170" y="350" width="90" height="400" fill="#1a0e38"/>
+              <rect x="270" y="400" width="70" height="350" fill="#120928"/>
+              <rect x="350" y="370" width="100" height="380" fill="#1a0e38"/>
+              <rect x="460" y="420" width="80" height="330" fill="#150b30"/>
             </g>
+            <!-- Right buildings -->
             <g>
-              <rect x="1450" y="490" width="80" height="260" fill="#0e0824"/>
-              <rect x="1540" y="430" width="70" height="320" fill="#110a28"/>
-              <rect x="1620" y="470" width="90" height="280" fill="#0c0720"/>
-              <rect x="1720" y="510" width="60" height="240" fill="#0f0926"/>
-              <rect x="1790" y="450" width="130" height="300" fill="#0d0822"/>
+              <rect x="1380" y="400" width="90" height="350" fill="#1a0e38"/>
+              <rect x="1480" y="360" width="80" height="390" fill="#150b30"/>
+              <rect x="1570" y="380" width="100" height="370" fill="#1a0e38"/>
+              <rect x="1680" y="410" width="70" height="340" fill="#120928"/>
+              <rect x="1760" y="370" width="160" height="380" fill="#1a0e38"/>
             </g>
-            <g filter="url(#glowGold)">
-              <rect x="20" y="510" width="10" height="8" fill="#FFAC43" opacity=".7" rx="1"/>
-              <rect x="40" y="530" width="10" height="8" fill="#FFAC43" opacity=".5" rx="1"/>
-              <rect x="180" y="470" width="10" height="8" fill="#FFAC43" opacity=".7" rx="1"/>
-              <rect x="1560" y="460" width="10" height="8" fill="#FFAC43" opacity=".7" rx="1"/>
+            <!-- Windows -->
+            <g opacity=".7">
+              <rect x="20" y="440" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="40" y="460" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="100" y="410" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="190" y="380" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="290" y="430" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="370" y="400" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="1400" y="430" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="1500" y="390" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="1590" y="410" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="1700" y="440" width="8" height="6" fill="#FFAC43" rx="1"/>
+              <rect x="1780" y="400" width="8" height="6" fill="#FFAC43" rx="1"/>
             </g>
+            <!-- Streetlights -->
+            <g opacity=".6">
+              <g transform="translate(140,700)"><line vector-effect="non-scaling-stroke" x1="0" y1="0" x2="0" y2="35" stroke="#FFAC43" stroke-width="2"/><circle cx="0" cy="0" r="4" fill="#FFAC43"/></g>
+              <g transform="translate(300,710)"><line vector-effect="non-scaling-stroke" x1="0" y1="0" x2="0" y2="35" stroke="#FFAC43" stroke-width="2"/><circle cx="0" cy="0" r="4" fill="#FFAC43"/></g>
+              <g transform="translate(1500,705)"><line vector-effect="non-scaling-stroke" x1="0" y1="0" x2="0" y2="35" stroke="#FFAC43" stroke-width="2"/><circle cx="0" cy="0" r="4" fill="#FFAC43"/></g>
+              <g transform="translate(1720,700)"><line vector-effect="non-scaling-stroke" x1="0" y1="0" x2="0" y2="35" stroke="#FFAC43" stroke-width="2"/><circle cx="0" cy="0" r="4" fill="#FFAC43"/></g>
+            </g>
+            <!-- River -->
+            <path id="riverPath" d="M860,750 Q900,800 960,850 Q1020,900 1060,950 L1060,1080 L860,1080 Z" fill="rgba(56,198,255,.35)"/>
+            <path d="M880,760 Q920,810 960,860 Q1000,910 1040,960" fill="none" stroke="rgba(130,226,255,.3)" stroke-width="3"/>
+            <path d="M900,770 Q930,820 960,870 Q990,920 1020,970" fill="none" stroke="rgba(56,198,255,.2)" stroke-width="2"/>
+            <!-- River rocks -->
+            <ellipse cx="870" cy="770" rx="25" ry="12" fill="#2a1650"/>
+            <ellipse cx="1050" cy="780" rx="20" ry="10" fill="#2a1650"/>
+            <ellipse cx="850" cy="800" rx="18" ry="9" fill="#3a1858"/>
           </svg>
         </div>
 
-        <div class="scene__foreground parallax-float">
-          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <ellipse cx="500" cy="940" rx="150" ry="20" fill="rgba(56,198,255,.08)" filter="url(#mist)"/>
-            <ellipse cx="1400" cy="935" rx="120" ry="18" fill="rgba(56,198,255,.06)" filter="url(#mist)"/>
-          </svg>
-        </div>
-
+        <!-- SEAM: River bottom -->
         <div class="seam-bottom" id="seam-hero-river">
           <svg class="scene-svg seam-svg" viewBox="0 0 1920 120" preserveAspectRatio="none">
             <defs>
               <linearGradient id="riverGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="rgba(56,198,255,.7)"/>
-                <stop offset="50%" stop-color="rgba(56,198,255,.3)"/>
-                <stop offset="100%" stop-color="rgba(18,11,41,.9)"/>
+                <stop offset="0%" stop-color="rgba(56,198,255,.6)"/>
+                <stop offset="100%" stop-color="rgba(13,6,36,.9)"/>
               </linearGradient>
             </defs>
             <rect width="1920" height="120" fill="url(#riverGrad)"/>
-            <path vector-effect="non-scaling-stroke" id="riverWave" d="M0,15 Q480,5 960,12 Q1440,20 1920,8 L1920,0 L0,0 Z" fill="rgba(56,198,255,.4)"/>
+            <path id="riverWave" d="M0,20 Q480,10 960,18 Q1440,26 1920,14 L1920,0 L0,0 Z" fill="rgba(56,198,255,.4)"/>
+            <path d="M0,40 Q480,30 960,38 Q1440,46 1920,34" fill="none" stroke="rgba(130,226,255,.25)" stroke-width="2"/>
           </svg>
         </div>
 
+        <!-- CONTENT -->
         <div class="scene__content scene__content--center">
           <h1 class="hero-heading">PARALEAX</h1>
           <p class="hero-sub">INNOVATIVE SOLUTIONS</p>
@@ -128,52 +156,139 @@
       </div>
     </section>
 
-    <!-- STAGE 02: MISSION (Waterfall & Lab) -->
+    <!-- ===================== SECTION 2: MISSION ===================== -->
     <section class="chapter chapter--mission" id="section-2">
       <div class="scene">
+
+        <!-- BG: Dark -->
         <div class="scene__background parallax-slow">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <rect width="1920" height="1080" fill="#0e0926"/>
+            <rect width="1920" height="1080" fill="#0d0a28"/>
           </svg>
         </div>
 
+        <!-- SEAM TOP: Waterfall crest -->
         <div class="seam-top" id="seam-mission-crest">
-          <svg class="scene-svg seam-svg" viewBox="0 0 1920 60" preserveAspectRatio="none">
+          <svg class="scene-svg seam-svg" viewBox="0 0 1920 80" preserveAspectRatio="none">
             <defs>
               <linearGradient id="crestGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="rgba(56,198,255,.7)"/>
-                <stop offset="100%" stop-color="rgba(56,198,255,.15)"/>
+                <stop offset="0%" stop-color="rgba(56,198,255,.6)"/>
+                <stop offset="100%" stop-color="rgba(56,198,255,.1)"/>
               </linearGradient>
             </defs>
-            <rect width="1920" height="60" fill="url(#crestGrad)"/>
-            <path vector-effect="non-scaling-stroke" class="crest-wave" d="M0,18 Q240,6 480,22 Q720,34 960,14 Q1200,2 1440,24 Q1680,36 1920,18" fill="none" stroke="rgba(130,226,255,.5)" stroke-width="3"/>
+            <rect width="1920" height="80" fill="url(#crestGrad)"/>
+            <!-- River rocks at top -->
+            <ellipse cx="820" cy="20" rx="30" ry="15" fill="#3a1858"/>
+            <ellipse cx="960" cy="15" rx="25" ry="12" fill="#4a2068"/>
+            <ellipse cx="1100" cy="22" rx="28" ry="14" fill="#3a1858"/>
           </svg>
         </div>
 
+        <!-- MID: Waterfall (center-left) — RUSHING -->
         <div class="scene__midground parallax-mid" id="waterfall-curtain">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="fallGrad" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stop-color="rgba(56,198,255,.6)"/>
-                <stop offset="50%" stop-color="rgba(56,198,255,.25)"/>
-                <stop offset="100%" stop-color="rgba(56,198,255,.05)"/>
+                <stop offset="40%" stop-color="rgba(56,198,255,.35)"/>
+                <stop offset="100%" stop-color="rgba(56,198,255,.02)"/>
               </linearGradient>
+              <linearGradient id="fallGradWhite" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(200,240,255,.4)"/>
+                <stop offset="100%" stop-color="rgba(200,240,255,.02)"/>
+              </linearGradient>
+              <filter id="fallBlur"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/></filter>
+              <filter id="fallGlow"><feGaussianBlur in="SourceGraphic" stdDeviation="6"/></filter>
             </defs>
-            <rect x="0" y="60" width="1920" height="1020" fill="url(#fallGrad)" opacity=".5"/>
-            <g>
-              <path vector-effect="non-scaling-stroke" class="water-line" d="M200,60 Q250,300 210,600 Q180,850 230,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="4"/>
-              <path vector-effect="non-scaling-stroke" class="water-line" d="M960,60 Q960,350 960,600 Q960,850 960,1080" fill="none" stroke="rgba(130,226,255,.55)" stroke-width="5"/>
-              <path vector-effect="non-scaling-stroke" class="water-line" d="M1720,60 Q1750,320 1710,600 Q1690,860 1700,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="4"/>
+            <!-- Waterfall body layers -->
+            <rect x="830" y="80" width="260" height="1000" fill="url(#fallGrad)" opacity=".45"/>
+            <rect x="860" y="60" width="200" height="1020" fill="url(#fallGradWhite)" opacity=".2"/>
+            <!-- Glow core -->
+            <rect x="900" y="40" width="120" height="1040" fill="rgba(130,226,255,.08)" filter="url(#fallGlow)"/>
+            <!-- Fast water lines (main flow) -->
+            <path class="water-line wf-fast" d="M855,80 Q862,300 855,500 Q848,700 860,900 Q868,1000 858,1080" fill="none" stroke="rgba(56,198,255,.5)" stroke-width="4.5"/>
+            <path class="water-line wf-fast" d="M890,70 Q898,280 890,480 Q882,680 894,880 Q902,980 892,1080" fill="none" stroke="rgba(130,226,255,.45)" stroke-width="5"/>
+            <path class="water-line wf-fast" d="M925,60 Q932,260 925,460 Q918,660 930,860 Q938,960 928,1080" fill="none" stroke="rgba(200,240,255,.4)" stroke-width="5.5"/>
+            <path class="water-line wf-fast" d="M960,65 Q952,270 960,470 Q968,670 956,870 Q948,970 958,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="5"/>
+            <path class="water-line wf-fast" d="M995,75 Q1003,290 995,490 Q987,690 999,890 Q1007,990 997,1080" fill="none" stroke="rgba(130,226,255,.4)" stroke-width="4.5"/>
+            <path class="water-line wf-fast" d="M1030,80 Q1022,300 1030,500 Q1038,700 1026,900 Q1018,1000 1028,1080" fill="none" stroke="rgba(56,198,255,.35)" stroke-width="4"/>
+            <!-- Secondary water lines (mid flow) -->
+            <path class="water-line wf-mid" d="M872,90 Q878,350 872,580 Q866,780 875,950 Q880,1020 874,1080" fill="none" stroke="rgba(56,198,255,.3)" stroke-width="3" opacity=".7"/>
+            <path class="water-line wf-mid" d="M942,85 Q948,320 942,540 Q936,740 945,920 Q950,1000 944,1080" fill="none" stroke="rgba(130,226,255,.25)" stroke-width="3.5" opacity=".6"/>
+            <path class="water-line wf-mid" d="M1010,88 Q1004,340 1010,560 Q1016,760 1008,940 Q1002,1010 1012,1080" fill="none" stroke="rgba(56,198,255,.25)" stroke-width="3" opacity=".65"/>
+            <!-- Slow outer lines (edge flow) -->
+            <path class="water-line wf-slow" d="M840,100 Q845,400 840,650 Q835,850 843,1080" fill="none" stroke="rgba(56,198,255,.18)" stroke-width="2.5"/>
+            <path class="water-line wf-slow" d="M1048,95 Q1042,380 1048,630 Q1054,830 1045,1080" fill="none" stroke="rgba(56,198,255,.15)" stroke-width="2.5"/>
+            <!-- Small white dashed lines — rushing streaks -->
+            <g class="streak-layer">
+              <line class="streak" x1="865" y1="-60" x2="862" y2="120" stroke="rgba(255,255,255,.45)" stroke-width="1.2" stroke-dasharray="8,14" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="895" y1="-40" x2="893" y2="140" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="6,16" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="920" y1="-80" x2="918" y2="100" stroke="rgba(255,255,255,.55)" stroke-width="1.3" stroke-dasharray="10,12" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="950" y1="-50" x2="948" y2="130" stroke="rgba(255,255,255,.4)" stroke-width="1.1" stroke-dasharray="7,15" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="975" y1="-70" x2="973" y2="110" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-dasharray="9,13" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1005" y1="-30" x2="1003" y2="150" stroke="rgba(255,255,255,.45)" stroke-width="1" stroke-dasharray="5,17" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1030" y1="-90" x2="1028" y2="90" stroke="rgba(255,255,255,.35)" stroke-width="1.1" stroke-dasharray="8,14" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="880" y1="-100" x2="878" y2="80" stroke="rgba(255,255,255,.3)" stroke-width=".9" stroke-dasharray="6,18" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="940" y1="-110" x2="938" y2="70" stroke="rgba(255,255,255,.35)" stroke-width=".8" stroke-dasharray="4,20" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1015" y1="-120" x2="1013" y2="60" stroke="rgba(255,255,255,.28)" stroke-width=".9" stroke-dasharray="7,16" vector-effect="non-scaling-stroke"/>
+            </g>
+            <!-- Splash particles at base -->
+            <g class="splash-group" opacity=".6">
+              <circle class="splash-dot" cx="870" cy="1040" r="3" fill="rgba(200,240,255,.5)"/>
+              <circle class="splash-dot" cx="910" cy="1050" r="2.5" fill="rgba(200,240,255,.4)"/>
+              <circle class="splash-dot" cx="950" cy="1035" r="3.5" fill="rgba(200,240,255,.45)"/>
+              <circle class="splash-dot" cx="990" cy="1045" r="2" fill="rgba(200,240,255,.35)"/>
+              <circle class="splash-dot" cx="1020" cy="1055" r="2.5" fill="rgba(200,240,255,.3)"/>
+              <circle class="splash-dot" cx="885" cy="1060" r="2" fill="rgba(130,226,255,.3)"/>
+              <circle class="splash-dot" cx="965" cy="1065" r="3" fill="rgba(130,226,255,.25)"/>
+            </g>
+            <!-- Mist at base -->
+            <g class="mist-layer" opacity=".3">
+              <ellipse cx="940" cy="1060" rx="120" ry="20" fill="rgba(200,240,255,.25)" filter="url(#fallBlur)"/>
+              <ellipse cx="880" cy="1070" rx="80" ry="15" fill="rgba(56,198,255,.15)" filter="url(#fallBlur)"/>
+              <ellipse cx="1010" cy="1065" rx="90" ry="18" fill="rgba(56,198,255,.12)" filter="url(#fallBlur)"/>
             </g>
           </svg>
         </div>
 
+        <!-- MID: Lab structure (right) -->
         <div class="scene__midground parallax-mid">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <rect vector-effect="non-scaling-stroke" x="1300" y="200" width="500" height="700" rx="4" fill="rgba(18,11,41,.7)" stroke="rgba(56,198,255,.2)" stroke-width="2"/>
+            <!-- Glass lab -->
+            <rect x="1250" y="200" width="520" height="700" rx="4" fill="rgba(20,12,50,.7)" stroke="rgba(56,198,255,.15)" stroke-width="1.5"/>
+            <!-- Floors -->
+            <line vector-effect="non-scaling-stroke" x1="1250" y1="400" x2="1770" y2="400" stroke="rgba(56,198,255,.1)" stroke-width="1"/>
+            <line vector-effect="non-scaling-stroke" x1="1250" y1="560" x2="1770" y2="560" stroke="rgba(56,198,255,.1)" stroke-width="1"/>
+            <line vector-effect="non-scaling-stroke" x1="1250" y1="720" x2="1770" y2="720" stroke="rgba(56,198,255,.1)" stroke-width="1"/>
+            <!-- Stairs -->
+            <path d="M1300,720 L1350,670 L1400,720 L1450,670 L1500,720 L1550,670" fill="none" stroke="rgba(56,198,255,.2)" stroke-width="1.5"/>
+            <path d="M1300,560 L1350,510 L1400,560 L1450,510 L1500,560 L1550,510" fill="none" stroke="rgba(56,198,255,.2)" stroke-width="1.5"/>
+            <!-- Scientists -->
+            <g opacity=".5">
+              <circle cx="1400" cy="490" r="6" fill="rgba(255,255,255,.3)"/>
+              <line vector-effect="non-scaling-stroke" x1="1400" y1="496" x2="1400" y2="520" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+              <circle cx="1520" cy="640" r="6" fill="rgba(255,255,255,.3)"/>
+              <line vector-effect="non-scaling-stroke" x1="1520" y1="646" x2="1520" y2="670" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+            </g>
+            <!-- Holographic screens -->
+            <rect x="1350" y="420" width="80" height="50" rx="2" fill="none" stroke="rgba(56,198,255,.12)" stroke-width="1"/>
+            <rect x="1550" y="420" width="80" height="50" rx="2" fill="none" stroke="rgba(56,198,255,.12)" stroke-width="1"/>
           </svg>
         </div>
 
+        <!-- FLOAT: Orange bubbles (right side, animated up) -->
+        <div class="scene__foreground parallax-float" id="bubbles-s2">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <circle class="bubble" cx="1500" cy="800" r="18" fill="rgba(255,172,67,.15)" stroke="rgba(255,172,67,.25)" stroke-width="1"/>
+            <circle class="bubble" cx="1580" cy="700" r="14" fill="rgba(255,172,67,.12)" stroke="rgba(255,172,67,.2)" stroke-width="1"/>
+            <circle class="bubble" cx="1540" cy="600" r="10" fill="rgba(255,172,67,.1)" stroke="rgba(255,172,67,.18)" stroke-width="1"/>
+            <circle class="bubble" cx="1600" cy="500" r="8" fill="rgba(255,172,67,.08)" stroke="rgba(255,172,67,.15)" stroke-width="1"/>
+            <circle class="bubble" cx="1480" cy="450" r="12" fill="rgba(255,172,67,.1)" stroke="rgba(255,172,67,.18)" stroke-width="1"/>
+            <circle class="bubble" cx="1560" cy="350" r="6" fill="rgba(255,172,67,.08)" stroke="rgba(255,172,67,.12)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <!-- CONTENT -->
         <div class="scene__content scene__content--left" id="mission-content">
           <h2 class="section-heading">Our Mission</h2>
           <div class="section-divider"></div>
@@ -183,33 +298,115 @@
       </div>
     </section>
 
-    <!-- STAGE 03: ADVANTAGES (Turbine & Control Room) -->
+    <!-- ===================== SECTION 3: ADVANTAGES ===================== -->
     <section class="chapter chapter--advantages" id="section-3">
       <div class="scene">
+
         <div class="scene__background parallax-slow">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <rect width="1920" height="1080" fill="#0a0720"/>
           </svg>
         </div>
 
-        <div class="seam-top" id="seam-turbine-intake">
-          <svg class="scene-svg seam-svg" viewBox="0 0 1920 80" preserveAspectRatio="none">
-            <path vector-effect="non-scaling-stroke" class="pipe-scrub" id="flow-intake-l" d="M700,0 L700,40 Q700,60 730,60 L960,60 Q990,60 990,80 L990,80" fill="none" stroke="rgba(56,198,255,.5)" stroke-width="6"/>
-          </svg>
-        </div>
-
-        <div class="scene__midground parallax-mid">
+        <!-- Waterfall (left side) — RUSHING -->
+        <div class="scene__midground parallax-mid" id="waterfall-s3">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <g transform="translate(400,450)">
-              <circle vector-effect="non-scaling-stroke" cx="0" cy="0" r="160" fill="none" stroke="rgba(200,60,120,.2)" stroke-width="3"/>
-              <g id="turbine-blades">
-                <line vector-effect="non-scaling-stroke" x1="0" y1="-140" x2="0" y2="140" stroke="rgba(200,60,120,.18)" stroke-width="2.5"/>
-                <line vector-effect="non-scaling-stroke" x1="-140" y1="0" x2="140" y2="0" stroke="rgba(200,60,120,.18)" stroke-width="2.5"/>
-              </g>
+            <defs>
+              <linearGradient id="fallGrad3" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(56,198,255,.55)"/>
+                <stop offset="40%" stop-color="rgba(56,198,255,.3)"/>
+                <stop offset="100%" stop-color="rgba(56,198,255,.02)"/>
+              </linearGradient>
+              <linearGradient id="fallGrad3W" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(200,240,255,.35)"/>
+                <stop offset="100%" stop-color="rgba(200,240,255,.02)"/>
+              </linearGradient>
+              <filter id="fall3Blur"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/></filter>
+              <filter id="fall3Glow"><feGaussianBlur in="SourceGraphic" stdDeviation="6"/></filter>
+            </defs>
+            <rect x="110" y="0" width="240" height="1080" fill="url(#fallGrad3)" opacity=".4"/>
+            <rect x="140" y="-20" width="180" height="1100" fill="url(#fallGrad3W)" opacity=".18"/>
+            <rect x="175" y="-10" width="110" height="1090" fill="rgba(130,226,255,.06)" filter="url(#fall3Glow)"/>
+            <!-- Fast lines -->
+            <path class="water-line wf-fast" d="M140,0 Q148,280 140,480 Q132,680 144,880 Q152,980 142,1080" fill="none" stroke="rgba(56,198,255,.5)" stroke-width="4.5"/>
+            <path class="water-line wf-fast" d="M185,-10 Q193,260 185,460 Q177,660 189,860 Q197,960 187,1080" fill="none" stroke="rgba(130,226,255,.45)" stroke-width="5"/>
+            <path class="water-line wf-fast" d="M230,-15 Q222,250 230,450 Q238,650 226,850 Q218,950 228,1080" fill="none" stroke="rgba(200,240,255,.4)" stroke-width="5.5"/>
+            <path class="water-line wf-fast" d="M275,-10 Q283,270 275,470 Q267,670 279,870 Q287,970 277,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="5"/>
+            <path class="water-line wf-fast" d="M320,-5 Q312,290 320,490 Q328,690 316,890 Q308,990 318,1080" fill="none" stroke="rgba(130,226,255,.4)" stroke-width="4.5"/>
+            <!-- Mid lines -->
+            <path class="water-line wf-mid" d="M162,10 Q168,300 162,520 Q156,720 165,900 Q170,990 163,1080" fill="none" stroke="rgba(56,198,255,.3)" stroke-width="3" opacity=".7"/>
+            <path class="water-line wf-mid" d="M252,5 Q248,310 252,530 Q258,730 249,910 Q244,1000 253,1080" fill="none" stroke="rgba(130,226,255,.25)" stroke-width="3.5" opacity=".6"/>
+            <!-- Slow edge -->
+            <path class="water-line wf-slow" d="M125,20 Q130,350 125,580 Q120,780 128,1080" fill="none" stroke="rgba(56,198,255,.15)" stroke-width="2.5"/>
+            <path class="water-line wf-slow" d="M340,15 Q334,340 340,570 Q346,770 337,1080" fill="none" stroke="rgba(56,198,255,.12)" stroke-width="2.5"/>
+            <!-- Small white dashed lines — rushing streaks -->
+            <g class="streak-layer">
+              <line class="streak" x1="148" y1="-60" x2="145" y2="120" stroke="rgba(255,255,255,.45)" stroke-width="1.2" stroke-dasharray="8,14" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="178" y1="-40" x2="176" y2="140" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="6,16" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="208" y1="-80" x2="206" y2="100" stroke="rgba(255,255,255,.55)" stroke-width="1.3" stroke-dasharray="10,12" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="238" y1="-50" x2="236" y2="130" stroke="rgba(255,255,255,.4)" stroke-width="1.1" stroke-dasharray="7,15" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="268" y1="-70" x2="266" y2="110" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-dasharray="9,13" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="298" y1="-30" x2="296" y2="150" stroke="rgba(255,255,255,.45)" stroke-width="1" stroke-dasharray="5,17" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="328" y1="-90" x2="326" y2="90" stroke="rgba(255,255,255,.35)" stroke-width="1.1" stroke-dasharray="8,14" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="165" y1="-100" x2="163" y2="80" stroke="rgba(255,255,255,.3)" stroke-width=".9" stroke-dasharray="6,18" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="225" y1="-110" x2="223" y2="70" stroke="rgba(255,255,255,.35)" stroke-width=".8" stroke-dasharray="4,20" vector-effect="non-scaling-stroke"/>
+            </g>
+            <!-- Splash -->
+            <g class="splash-group" opacity=".5">
+              <circle class="splash-dot" cx="155" cy="1050" r="3" fill="rgba(200,240,255,.4)"/>
+              <circle class="splash-dot" cx="200" cy="1055" r="2.5" fill="rgba(200,240,255,.35)"/>
+              <circle class="splash-dot" cx="250" cy="1045" r="3" fill="rgba(200,240,255,.3)"/>
+              <circle class="splash-dot" cx="300" cy="1060" r="2" fill="rgba(130,226,255,.3)"/>
+            </g>
+            <!-- Mist -->
+            <g class="mist-layer" opacity=".25">
+              <ellipse cx="230" cy="1065" rx="110" ry="18" fill="rgba(200,240,255,.2)" filter="url(#fall3Blur)"/>
+              <ellipse cx="170" cy="1075" rx="70" ry="14" fill="rgba(56,198,255,.12)" filter="url(#fall3Blur)"/>
             </g>
           </svg>
         </div>
 
+        <!-- Turbine (left) -->
+        <div class="scene__midground parallax-mid">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <g transform="translate(350,500)">
+              <!-- Turbine housing -->
+              <circle cx="0" cy="0" r="170" fill="none" stroke="rgba(200,60,80,.15)" stroke-width="3"/>
+              <circle cx="0" cy="0" r="130" fill="none" stroke="rgba(200,60,80,.12)" stroke-width="2"/>
+              <circle cx="0" cy="0" r="60" fill="rgba(200,60,80,.06)"/>
+              <!-- Blades -->
+              <g id="turbine-blades">
+                <line vector-effect="non-scaling-stroke" x1="0" y1="-150" x2="0" y2="150" stroke="rgba(200,60,80,.15)" stroke-width="2"/>
+                <line vector-effect="non-scaling-stroke" x1="-150" y1="0" x2="150" y2="0" stroke="rgba(200,60,80,.15)" stroke-width="2"/>
+                <line vector-effect="non-scaling-stroke" x1="-106" y1="-106" x2="106" y2="106" stroke="rgba(200,60,80,.1)" stroke-width="1.5"/>
+                <line vector-effect="non-scaling-stroke" x1="106" y1="-106" x2="-106" y2="106" stroke="rgba(200,60,80,.1)" stroke-width="1.5"/>
+              </g>
+              <!-- Center hub -->
+              <circle cx="0" cy="0" r="20" fill="rgba(200,60,80,.08)" stroke="rgba(200,60,80,.12)" stroke-width="1"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Control room (right) -->
+        <div class="scene__midground parallax-mid">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <!-- Desk -->
+            <path d="M1350,620 Q1500,560 1650,620" fill="none" stroke="rgba(56,198,255,.2)" stroke-width="1.5"/>
+            <ellipse cx="1500" cy="600" rx="100" ry="12" fill="rgba(56,198,255,.06)"/>
+            <!-- Operators -->
+            <g opacity=".5">
+              <circle cx="1450" cy="570" r="7" fill="rgba(255,255,255,.3)"/>
+              <line vector-effect="non-scaling-stroke" x1="1450" y1="577" x2="1450" y2="605" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+              <circle cx="1550" cy="570" r="7" fill="rgba(255,255,255,.3)"/>
+              <line vector-effect="non-scaling-stroke" x1="1550" y1="577" x2="1550" y2="605" stroke="rgba(255,255,255,.25)" stroke-width="1.5"/>
+            </g>
+            <!-- Holographic screens -->
+            <rect x="1380" y="480" width="90" height="60" rx="2" fill="none" stroke="rgba(56,198,255,.12)" stroke-width="1"/>
+            <rect x="1530" y="480" width="90" height="60" rx="2" fill="none" stroke="rgba(56,198,255,.12)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <!-- CONTENT -->
         <div class="scene__content scene__content--right" id="advantages-content">
           <h2 class="section-heading">Our Advantages</h2>
           <div class="section-divider"></div>
@@ -227,23 +424,107 @@
       </div>
     </section>
 
-    <!-- STAGE 04: MODEL FOR SUCCESS (Molten Energy) -->
+    <!-- ===================== SECTION 4: MODEL ===================== -->
     <section class="chapter chapter--model" id="section-4">
       <div class="scene">
+
         <div class="scene__background parallax-slow">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <rect width="1920" height="1080" fill="#060412"/>
-          </svg>
-        </div>
-
-        <div class="scene__midground parallax-mid" id="energy-streams">
-          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
-            <g>
-              <path vector-effect="non-scaling-stroke" class="energy-stream" id="stream2" d="M960,80 Q960,300 960,500 Q960,700 960,1080" fill="none" stroke="#FFAC43" stroke-width="12" opacity=".65"/>
+            <rect width="1920" height="1080" fill="#0d0624"/>
+            <!-- Industrial pipes background -->
+            <g opacity=".15">
+              <line vector-effect="non-scaling-stroke" x1="0" y1="200" x2="500" y2="200" stroke="#fff" stroke-width="1"/>
+              <line vector-effect="non-scaling-stroke" x1="0" y1="400" x2="400" y2="400" stroke="#fff" stroke-width="1"/>
+              <line vector-effect="non-scaling-stroke" x1="1500" y1="150" x2="1920" y2="150" stroke="#fff" stroke-width="1"/>
+              <line vector-effect="non-scaling-stroke" x1="1600" y1="350" x2="1920" y2="350" stroke="#fff" stroke-width="1"/>
             </g>
           </svg>
         </div>
 
+        <!-- Waterfall (right side) — RUSHING -->
+        <div class="scene__midground parallax-mid" id="waterfall-s4">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="fallGrad4" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(56,198,255,.55)"/>
+                <stop offset="40%" stop-color="rgba(56,198,255,.3)"/>
+                <stop offset="100%" stop-color="rgba(56,198,255,.02)"/>
+              </linearGradient>
+              <linearGradient id="fallGrad4W" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(200,240,255,.35)"/>
+                <stop offset="100%" stop-color="rgba(200,240,255,.02)"/>
+              </linearGradient>
+              <filter id="fall4Blur"><feGaussianBlur in="SourceGraphic" stdDeviation="2"/></filter>
+              <filter id="fall4Glow"><feGaussianBlur in="SourceGraphic" stdDeviation="6"/></filter>
+            </defs>
+            <rect x="1560" y="0" width="240" height="1080" fill="url(#fallGrad4)" opacity=".4"/>
+            <rect x="1590" y="-20" width="180" height="1100" fill="url(#fallGrad4W)" opacity=".18"/>
+            <rect x="1625" y="-10" width="110" height="1090" fill="rgba(130,226,255,.06)" filter="url(#fall4Glow)"/>
+            <!-- Fast lines -->
+            <path class="water-line wf-fast" d="M1590,0 Q1598,280 1590,480 Q1582,680 1594,880 Q1602,980 1592,1080" fill="none" stroke="rgba(56,198,255,.5)" stroke-width="4.5"/>
+            <path class="water-line wf-fast" d="M1635,-10 Q1643,260 1635,460 Q1627,660 1639,860 Q1647,960 1637,1080" fill="none" stroke="rgba(130,226,255,.45)" stroke-width="5"/>
+            <path class="water-line wf-fast" d="M1680,-15 Q1672,250 1680,450 Q1688,650 1676,850 Q1668,950 1678,1080" fill="none" stroke="rgba(200,240,255,.4)" stroke-width="5.5"/>
+            <path class="water-line wf-fast" d="M1725,-10 Q1733,270 1725,470 Q1717,670 1729,870 Q1737,970 1727,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="5"/>
+            <path class="water-line wf-fast" d="M1770,-5 Q1762,290 1770,490 Q1778,690 1766,890 Q1758,990 1768,1080" fill="none" stroke="rgba(130,226,255,.4)" stroke-width="4.5"/>
+            <!-- Mid lines -->
+            <path class="water-line wf-mid" d="M1612,10 Q1618,300 1612,520 Q1606,720 1615,900 Q1620,990 1613,1080" fill="none" stroke="rgba(56,198,255,.3)" stroke-width="3" opacity=".7"/>
+            <path class="water-line wf-mid" d="M1702,5 Q1698,310 1702,530 Q1708,730 1699,910 Q1694,1000 1703,1080" fill="none" stroke="rgba(130,226,255,.25)" stroke-width="3.5" opacity=".6"/>
+            <!-- Slow edge -->
+            <path class="water-line wf-slow" d="M1575,20 Q1580,350 1575,580 Q1570,780 1578,1080" fill="none" stroke="rgba(56,198,255,.15)" stroke-width="2.5"/>
+            <path class="water-line wf-slow" d="M1790,15 Q1784,340 1790,570 Q1796,770 1787,1080" fill="none" stroke="rgba(56,198,255,.12)" stroke-width="2.5"/>
+            <!-- Small white dashed lines — rushing streaks -->
+            <g class="streak-layer">
+              <line class="streak" x1="1598" y1="-60" x2="1595" y2="120" stroke="rgba(255,255,255,.45)" stroke-width="1.2" stroke-dasharray="8,14" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1628" y1="-40" x2="1626" y2="140" stroke="rgba(255,255,255,.5)" stroke-width="1" stroke-dasharray="6,16" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1658" y1="-80" x2="1656" y2="100" stroke="rgba(255,255,255,.55)" stroke-width="1.3" stroke-dasharray="10,12" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1688" y1="-50" x2="1686" y2="130" stroke="rgba(255,255,255,.4)" stroke-width="1.1" stroke-dasharray="7,15" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1718" y1="-70" x2="1716" y2="110" stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-dasharray="9,13" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1748" y1="-30" x2="1746" y2="150" stroke="rgba(255,255,255,.45)" stroke-width="1" stroke-dasharray="5,17" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1778" y1="-90" x2="1776" y2="90" stroke="rgba(255,255,255,.35)" stroke-width="1.1" stroke-dasharray="8,14" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1615" y1="-100" x2="1613" y2="80" stroke="rgba(255,255,255,.3)" stroke-width=".9" stroke-dasharray="6,18" vector-effect="non-scaling-stroke"/>
+              <line class="streak" x1="1675" y1="-110" x2="1673" y2="70" stroke="rgba(255,255,255,.35)" stroke-width=".8" stroke-dasharray="4,20" vector-effect="non-scaling-stroke"/>
+            </g>
+            <!-- Splash -->
+            <g class="splash-group" opacity=".5">
+              <circle class="splash-dot" cx="1605" cy="1050" r="3" fill="rgba(200,240,255,.4)"/>
+              <circle class="splash-dot" cx="1650" cy="1055" r="2.5" fill="rgba(200,240,255,.35)"/>
+              <circle class="splash-dot" cx="1700" cy="1045" r="3" fill="rgba(200,240,255,.3)"/>
+              <circle class="splash-dot" cx="1750" cy="1060" r="2" fill="rgba(130,226,255,.3)"/>
+            </g>
+            <!-- Mist -->
+            <g class="mist-layer" opacity=".25">
+              <ellipse cx="1680" cy="1065" rx="110" ry="18" fill="rgba(200,240,255,.2)" filter="url(#fall4Blur)"/>
+              <ellipse cx="1740" cy="1075" rx="70" ry="14" fill="rgba(56,198,255,.12)" filter="url(#fall4Blur)"/>
+            </g>
+          </svg>
+        </div>
+
+        <!-- Industrial vats (right side) -->
+        <div class="scene__midground parallax-mid">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <!-- Large vat -->
+            <rect x="1100" y="250" width="200" height="500" rx="8" fill="rgba(20,12,50,.6)" stroke="rgba(255,172,67,.12)" stroke-width="1.5"/>
+            <rect x="1120" y="270" width="160" height="120" rx="4" fill="rgba(255,172,67,.06)"/>
+            <!-- Pipes connecting vats -->
+            <path d="M1300,400 L1450,400 Q1480,400 1480,430 L1480,500" fill="none" stroke="rgba(180,180,200,.2)" stroke-width="3"/>
+            <path d="M1300,550 L1400,550 Q1430,550 1430,580 L1430,650" fill="none" stroke="rgba(180,180,200,.2)" stroke-width="3"/>
+            <!-- Small vat -->
+            <rect x="1450" y="500" width="120" height="250" rx="6" fill="rgba(20,12,50,.5)" stroke="rgba(255,172,67,.1)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <!-- FLOAT: Orange bubbles rising from left vat -->
+        <div class="scene__foreground parallax-float" id="bubbles-s4">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <circle class="bubble" cx="1200" cy="600" r="20" fill="rgba(255,172,67,.15)" stroke="rgba(255,172,67,.25)" stroke-width="1"/>
+            <circle class="bubble" cx="1180" cy="500" r="16" fill="rgba(255,172,67,.12)" stroke="rgba(255,172,67,.2)" stroke-width="1"/>
+            <circle class="bubble" cx="1220" cy="400" r="12" fill="rgba(255,172,67,.1)" stroke="rgba(255,172,67,.18)" stroke-width="1"/>
+            <circle class="bubble" cx="1190" cy="320" r="9" fill="rgba(255,172,67,.08)" stroke="rgba(255,172,67,.15)" stroke-width="1"/>
+            <circle class="bubble" cx="1210" cy="250" r="7" fill="rgba(255,172,67,.06)" stroke="rgba(255,172,67,.12)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <!-- CONTENT -->
         <div class="scene__content scene__content--left" id="model-content">
           <h2 class="section-heading">A Model For Success.</h2>
           <p class="section-body">We've crafted a modular approach to conceptualizing, designing, implementing, and testing on custom software projects over time.</p>
@@ -253,23 +534,61 @@
       </div>
     </section>
 
-    <!-- STAGE 05: LANDSCAPE FINALE (Sunset Ocean) -->
+    <!-- ===================== SECTION 5: LANDSCAPE ===================== -->
     <section class="chapter chapter--landscape" id="section-5">
       <div class="scene">
+
+        <!-- BG: Sunset sky through bridge arch -->
         <div class="scene__background parallax-slow">
           <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="sunsetSky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#1C1236"/>
-                <stop offset="55%" stop-color="#FFAC43"/>
-                <stop offset="100%" stop-color="#120B29"/>
+                <stop offset="0%" stop-color="#2a1650"/>
+                <stop offset="25%" stop-color="#7a3878"/>
+                <stop offset="50%" stop-color="#c06838"/>
+                <stop offset="70%" stop-color="#FFAC43"/>
+                <stop offset="85%" stop-color="#FF7B42"/>
+                <stop offset="100%" stop-color="#0d0624"/>
               </linearGradient>
             </defs>
             <rect width="1920" height="1080" fill="url(#sunsetSky)"/>
-            <circle id="sunsetSun" cx="600" cy="380" r="60" fill="#FFAC43" opacity=".6"/>
+            <!-- Sun -->
+            <circle cx="700" cy="550" r="80" fill="#FFAC43" opacity=".7"/>
+            <circle cx="700" cy="550" r="120" fill="#FFAC43" opacity=".2"/>
+            <!-- Faceted mountains -->
+            <polygon vector-effect="non-scaling-stroke" points="400,650 650,380 900,650" fill="#5a2878" opacity=".6"/>
+            <polygon vector-effect="non-scaling-stroke" points="800,650 1100,350 1400,650" fill="#4a2068" opacity=".5"/>
+            <polygon vector-effect="non-scaling-stroke" points="1200,650 1450,400 1700,650" fill="#5a2878" opacity=".55"/>
+            <!-- Birds -->
+            <path d="M500,300 Q510,290 520,300 Q530,290 540,300" fill="none" stroke="rgba(255,255,255,.15)" stroke-width="1.5"/>
+            <path d="M550,280 Q558,272 566,280 Q574,272 582,280" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.2"/>
+            <!-- Water reflections -->
+            <rect x="0" y="700" width="1920" height="380" fill="rgba(13,6,36,.5)"/>
+            <path d="M0,750 Q480,740 960,750 Q1440,760 1920,750" fill="none" stroke="rgba(255,172,67,.08)" stroke-width="1"/>
+            <path d="M0,800 Q480,790 960,800 Q1440,810 1920,800" fill="none" stroke="rgba(255,172,67,.06)" stroke-width="1"/>
           </svg>
         </div>
 
+        <!-- Bridge arch (foreground frame) -->
+        <div class="scene__foreground parallax-float" id="bridge-arch">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <!-- Bridge structure top -->
+            <rect x="0" y="0" width="1920" height="120" fill="#0d0624"/>
+            <!-- Bridge underside arch -->
+            <path d="M0,120 L0,120 Q480,-80 960,0 Q1440,-80 1920,120 L1920,120 L1920,0 L0,0 Z" fill="#0d0624"/>
+            <!-- Bridge deck -->
+            <rect x="0" y="100" width="1920" height="30" fill="#150b30"/>
+            <!-- Bridge pillars -->
+            <rect x="200" y="0" width="40" height="130" fill="#0d0624"/>
+            <rect x="1680" y="0" width="40" height="130" fill="#0d0624"/>
+            <!-- River under bridge -->
+            <rect x="0" y="130" width="1920" height="950" fill="rgba(13,6,36,.3)"/>
+            <path d="M0,200 Q480,190 960,200 Q1440,210 1920,200" fill="none" stroke="rgba(56,198,255,.15)" stroke-width="1.5"/>
+            <path d="M0,250 Q480,240 960,250 Q1440,260 1920,250" fill="none" stroke="rgba(56,198,255,.1)" stroke-width="1"/>
+          </svg>
+        </div>
+
+        <!-- CONTENT -->
         <div class="scene__content scene__content--center" id="landscape-content">
           <h2 class="section-heading-lg">Where Vision Meets Horizon</h2>
           <p class="section-body" style="max-width:400px;margin:0 auto;">The journey continues beyond the visible. We build for what's next.</p>
@@ -285,6 +604,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>
