@@ -3,256 +3,284 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paraleax — Continuous World Parallax</title>
+  <title>PARALEAX — Continuous Vector Parallax</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
 </head>
 <body>
 
-  <!-- FLOATING PILL NAV -->
-  <nav class="pill-nav" role="navigation" aria-label="Main navigation">
-    <div class="pill-nav__inner">
-      <a href="#ui-s1" class="pill-nav__link" data-section="s1">Our Story</a>
-      <a href="#ui-s2" class="pill-nav__link" data-section="s2">Mission</a>
-      <a href="#ui-s3" class="pill-nav__link" data-section="s3">Advantages</a>
-      <a href="#ui-s4" class="pill-nav__link" data-section="s4">Model</a>
-      <a href="#ui-s5" class="pill-nav__link" data-section="s5">Landscape</a>
-      <a href="#contact" class="pill-nav__cta">Contact</a>
+  <!-- FLOATING PILL NAVBAR -->
+  <nav class="glass-nav" role="navigation" aria-label="Main navigation">
+    <div class="glass-nav__pill">
+      <a href="#section-1" class="glass-nav__logo" aria-label="PARALEAX — Go to top">
+        <svg viewBox="0 0 40 36" width="22" height="20" fill="currentColor"><polygon vector-effect="non-scaling-stroke" points="20,0 40,36 0,36"/></svg>
+      </a>
+      <a href="#section-1" class="glass-nav__link" data-nav="s1">Our Story</a>
+      <a href="#section-2" class="glass-nav__link" data-nav="s2">Mission</a>
+      <a href="#section-3" class="glass-nav__link" data-nav="s3">Advantages</a>
+      <a href="#section-4" class="glass-nav__link" data-nav="s4">Model</a>
+      <a href="#section-5" class="glass-nav__link" data-nav="s5">Landscape</a>
+      <a href="#contact" class="glass-nav__cta">Contact</a>
     </div>
-    <button class="pill-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
+    <button class="glass-nav__hamburger" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
+  <!-- MOBILE MENU -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true" role="dialog" aria-label="Mobile menu">
-    <a href="#ui-s1" class="mobile-link" data-section="s1">Our Story</a>
-    <a href="#ui-s2" class="mobile-link" data-section="s2">Mission</a>
-    <a href="#ui-s3" class="mobile-link" data-section="s3">Advantages</a>
-    <a href="#ui-s4" class="mobile-link" data-section="s4">Model</a>
-    <a href="#ui-s5" class="mobile-link" data-section="s5">Landscape</a>
+    <a href="#section-1" class="mobile-link" data-section="s1">Our Story</a>
+    <a href="#section-2" class="mobile-link" data-section="s2">Mission</a>
+    <a href="#section-3" class="mobile-link" data-section="s3">Advantages</a>
+    <a href="#section-4" class="mobile-link" data-section="s4">Model</a>
+    <a href="#section-5" class="mobile-link" data-section="s5">Landscape</a>
     <a href="#contact" class="mobile-link mobile-link--cta">Contact</a>
   </div>
 
-  <!-- SCROLL TRACK -->
-  <div class="scroll-track" id="scrollTrack">
+  <main class="main-content">
 
-    <!-- FIXED 16:9 VIEWPORT -->
-    <div class="viewport">
-      <div class="canvas" id="canvas">
-
-        <!-- ==============================
-             LAYER 0: SKY (entire world)
-             ============================== -->
-        <div class="layer" data-speed="0.02" id="L-sky">
-          <div class="sky-city"></div>
-          <div class="sky-sunset" id="skySunset"></div>
+    <!-- STAGE 01: HERO (City Skyline & River) -->
+    <section class="chapter chapter--hero" id="section-1">
+      <div class="scene">
+        <div class="scene__background parallax-slow">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0a0620"/>
+                <stop offset="30%" stop-color="#120B29"/>
+                <stop offset="55%" stop-color="#1C1236"/>
+                <stop offset="72%" stop-color="#3a2068"/>
+                <stop offset="85%" stop-color="#6a3880"/>
+                <stop offset="95%" stop-color="#c06838"/>
+                <stop offset="100%" stop-color="#FF7B42"/>
+              </linearGradient>
+              <filter id="glowGold"><feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FFAC43" flood-opacity=".45"/></filter>
+              <filter id="mist"><feGaussianBlur in="SourceGraphic" stdDeviation="8"/></filter>
+            </defs>
+            <rect width="1920" height="1080" fill="url(#heroSky)"/>
+            <g opacity=".4">
+              <circle cx="150" cy="80" r="2" fill="#fff"/><circle cx="400" cy="120" r="1.5" fill="#fff"/>
+              <circle cx="700" cy="60" r="1.8" fill="#fff"/><circle cx="1100" cy="90" r="1.5" fill="#fff"/>
+              <circle cx="1500" cy="70" r="2" fill="#fff"/><circle cx="1750" cy="110" r="1.5" fill="#fff"/>
+            </g>
+            <g opacity=".6">
+              <polygon vector-effect="non-scaling-stroke" points="0,750 200,520 400,750" fill="#2a1858"/>
+              <polygon vector-effect="non-scaling-stroke" points="300,750 520,480 740,750" fill="#341e62"/>
+              <polygon vector-effect="non-scaling-stroke" points="650,750 900,440 1150,750" fill="#221450"/>
+              <polygon vector-effect="non-scaling-stroke" points="1000,750 1250,500 1500,750" fill="#2e1a5c"/>
+              <polygon vector-effect="non-scaling-stroke" points="1400,750 1650,460 1920,750" fill="#381f66"/>
+            </g>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 1: DISTANT MOUNTAINS
-             ============================== -->
-        <div class="layer" data-speed="0.06" id="L-mountains-far">
-          <div class="mtn-far mtn-far--1"></div>
-          <div class="mtn-far mtn-far--2"></div>
-          <div class="mtn-far mtn-far--3"></div>
+        <div class="scene__midground parallax-mid">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <g>
+              <rect x="0" y="480" width="60" height="270" fill="#0e0824"/>
+              <rect x="70" y="520" width="80" height="230" fill="#110a28"/>
+              <rect x="160" y="440" width="70" height="310" fill="#0c0720"/>
+              <rect x="240" y="500" width="90" height="250" fill="#0f0926"/>
+              <rect x="340" y="460" width="60" height="290" fill="#0d0822"/>
+            </g>
+            <g>
+              <rect x="1450" y="490" width="80" height="260" fill="#0e0824"/>
+              <rect x="1540" y="430" width="70" height="320" fill="#110a28"/>
+              <rect x="1620" y="470" width="90" height="280" fill="#0c0720"/>
+              <rect x="1720" y="510" width="60" height="240" fill="#0f0926"/>
+              <rect x="1790" y="450" width="130" height="300" fill="#0d0822"/>
+            </g>
+            <g filter="url(#glowGold)">
+              <rect x="20" y="510" width="10" height="8" fill="#FFAC43" opacity=".7" rx="1"/>
+              <rect x="40" y="530" width="10" height="8" fill="#FFAC43" opacity=".5" rx="1"/>
+              <rect x="180" y="470" width="10" height="8" fill="#FFAC43" opacity=".7" rx="1"/>
+              <rect x="1560" y="460" width="10" height="8" fill="#FFAC43" opacity=".7" rx="1"/>
+            </g>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 2: CITY BACK BUILDINGS
-             Fades out during transition 1→2
-             ============================== -->
-        <div class="layer" data-speed="0.12" id="L-city-back">
-          <div class="cbldg cbldg--1"></div>
-          <div class="cbldg cbldg--2"></div>
-          <div class="cbldg cbldg--3"></div>
-          <div class="cbldg cbldg--4"></div>
-          <div class="cbldg cbldg--5"></div>
-          <div class="cbldg cbldg--6"></div>
+        <div class="scene__foreground parallax-float">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <ellipse cx="500" cy="940" rx="150" ry="20" fill="rgba(56,198,255,.08)" filter="url(#mist)"/>
+            <ellipse cx="1400" cy="935" rx="120" ry="18" fill="rgba(56,198,255,.06)" filter="url(#mist)"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 3: CITY FRONT BUILDINGS
-             Fades out during transition 1→2
-             ============================== -->
-        <div class="layer" data-speed="0.22" id="L-city-front">
-          <div class="fbldg fbldg--1"></div>
-          <div class="fbldg fbldg--2"></div>
-          <div class="fbldg fbldg--3"></div>
-          <div class="fbldg fbldg--4"></div>
-          <div class="fbldg fbldg--5"></div>
-          <div class="fbldg fbldg--6"></div>
-          <div class="fbldg fbldg--7"></div>
-          <div class="fbldg fbldg--8"></div>
+        <div class="seam-bottom" id="seam-hero-river">
+          <svg class="scene-svg seam-svg" viewBox="0 0 1920 120" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="riverGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(56,198,255,.7)"/>
+                <stop offset="50%" stop-color="rgba(56,198,255,.3)"/>
+                <stop offset="100%" stop-color="rgba(18,11,41,.9)"/>
+              </linearGradient>
+            </defs>
+            <rect width="1920" height="120" fill="url(#riverGrad)"/>
+            <path vector-effect="non-scaling-stroke" id="riverWave" d="M0,15 Q480,5 960,12 Q1440,20 1920,8 L1920,0 L0,0 Z" fill="rgba(56,198,255,.4)"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 4: STREET LIGHTS
-             Fades during transition 1→2
-             ============================== -->
-        <div class="layer" data-speed="0.32" id="L-lights">
-          <div class="slight slight--1"></div>
-          <div class="slight slight--2"></div>
-          <div class="slight slight--3"></div>
-          <div class="slight slight--4"></div>
-          <div class="slight slight--5"></div>
-          <div class="slight slight--6"></div>
-          <div class="slight slight--7"></div>
-          <div class="slight slight--8"></div>
-          <div class="slight slight--9"></div>
-          <div class="slight slight--10"></div>
+        <div class="scene__content scene__content--center">
+          <h1 class="hero-heading">PARALEAX</h1>
+          <p class="hero-sub">INNOVATIVE SOLUTIONS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 02: MISSION (Waterfall & Lab) -->
+    <section class="chapter chapter--mission" id="section-2">
+      <div class="scene">
+        <div class="scene__background parallax-slow">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <rect width="1920" height="1080" fill="#0e0926"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 5: RIVER / WATER
-             Morphs: river → waterfall → mist
-             ============================== -->
-        <div class="layer" data-speed="0.42" id="L-water">
-          <div class="river" id="river"></div>
-          <div class="river-flow" id="riverFlow"></div>
-          <div class="waterfall" id="waterfall"></div>
-          <div class="waterfall-foam" id="waterfallFoam"></div>
-          <div class="waterfall-col" id="waterfallCol"></div>
-          <div class="waterfall-glow" id="waterfallGlow"></div>
+        <div class="seam-top" id="seam-mission-crest">
+          <svg class="scene-svg seam-svg" viewBox="0 0 1920 60" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="crestGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(56,198,255,.7)"/>
+                <stop offset="100%" stop-color="rgba(56,198,255,.15)"/>
+              </linearGradient>
+            </defs>
+            <rect width="1920" height="60" fill="url(#crestGrad)"/>
+            <path vector-effect="non-scaling-stroke" class="crest-wave" d="M0,18 Q240,6 480,22 Q720,34 960,14 Q1200,2 1440,24 Q1680,36 1920,18" fill="none" stroke="rgba(130,226,255,.5)" stroke-width="3"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 6: INDUSTRIAL ELEMENTS
-             Fades in at t=3, fades out at t=7.5
-             ============================== -->
-        <div class="layer" data-speed="0.15" id="L-industrial">
-          <div class="ind-bg"></div>
-          <div class="ind-scaffold"></div>
-          <div class="ind-vlight ind-vlight--1"></div>
-          <div class="ind-vlight ind-vlight--2"></div>
-          <div class="ind-vlight ind-vlight--3"></div>
+        <div class="scene__midground parallax-mid" id="waterfall-curtain">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="fallGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="rgba(56,198,255,.6)"/>
+                <stop offset="50%" stop-color="rgba(56,198,255,.25)"/>
+                <stop offset="100%" stop-color="rgba(56,198,255,.05)"/>
+              </linearGradient>
+            </defs>
+            <rect x="0" y="60" width="1920" height="1020" fill="url(#fallGrad)" opacity=".5"/>
+            <g>
+              <path vector-effect="non-scaling-stroke" class="water-line" d="M200,60 Q250,300 210,600 Q180,850 230,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="4"/>
+              <path vector-effect="non-scaling-stroke" class="water-line" d="M960,60 Q960,350 960,600 Q960,850 960,1080" fill="none" stroke="rgba(130,226,255,.55)" stroke-width="5"/>
+              <path vector-effect="non-scaling-stroke" class="water-line" d="M1720,60 Q1750,320 1710,600 Q1690,860 1700,1080" fill="none" stroke="rgba(56,198,255,.45)" stroke-width="4"/>
+            </g>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 7: MACHINE / WHEEL
-             Fades in at t=3.5, out at t=6.5
-             ============================== -->
-        <div class="layer" data-speed="0.25" id="L-machine">
-          <div class="wheel wheel--outer"></div>
-          <div class="wheel wheel--mid"></div>
-          <div class="wheel wheel--inner"></div>
-          <div class="wheel-spoke wheel-spoke--1"></div>
-          <div class="wheel-spoke wheel-spoke--2"></div>
-          <div class="wheel-spoke wheel-spoke--3"></div>
-          <div class="wheel-spoke wheel-spoke--4"></div>
-          <div class="wheel-glow"></div>
-          <div class="wheel-base"></div>
+        <div class="scene__midground parallax-mid">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <rect vector-effect="non-scaling-stroke" x="1300" y="200" width="500" height="700" rx="4" fill="rgba(18,11,41,.7)" stroke="rgba(56,198,255,.2)" stroke-width="2"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 8: FLOATING SPHERES
-             Fades in at t=5.5, out at t=7.5
-             ============================== -->
-        <div class="layer" data-speed="0.35" id="L-spheres">
-          <div class="sphere sphere--1"></div>
-          <div class="sphere sphere--2"></div>
-          <div class="sphere sphere--3"></div>
-          <div class="sphere-platform"></div>
-          <div class="sphere-person"></div>
+        <div class="scene__content scene__content--left" id="mission-content">
+          <h2 class="section-heading">Our Mission</h2>
+          <div class="section-divider"></div>
+          <p class="section-body">At Paraleax, our purpose is to empower digital relationships through mobility. By designing and developing custom apps and mobile web-apps, we act as a guide — leading our clients through the process of building complex digital products.</p>
+          <a href="#contact" class="section-cta">Let's Build!</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAGE 03: ADVANTAGES (Turbine & Control Room) -->
+    <section class="chapter chapter--advantages" id="section-3">
+      <div class="scene">
+        <div class="scene__background parallax-slow">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <rect width="1920" height="1080" fill="#0a0720"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 9: SUNSET LANDSCAPE
-             Fades in at t=7, full at t=8
-             ============================== -->
-        <div class="layer" data-speed="0.08" id="L-sunset">
-          <div class="sun" id="sun"></div>
-          <div class="sun-glow" id="sunGlow"></div>
-          <div class="cloud cloud--1"></div>
-          <div class="cloud cloud--2"></div>
-          <div class="bird bird--1"></div>
-          <div class="bird bird--2"></div>
-          <div class="bird bird--3"></div>
-          <div class="smtn smtn--large"></div>
-          <div class="smtn smtn--mid"></div>
-          <div class="smtn smtn--small"></div>
-          <div class="swater" id="swater"></div>
-          <div class="sreflection" id="sreflection"></div>
+        <div class="seam-top" id="seam-turbine-intake">
+          <svg class="scene-svg seam-svg" viewBox="0 0 1920 80" preserveAspectRatio="none">
+            <path vector-effect="non-scaling-stroke" class="pipe-scrub" id="flow-intake-l" d="M700,0 L700,40 Q700,60 730,60 L960,60 Q990,60 990,80 L990,80" fill="none" stroke="rgba(56,198,255,.5)" stroke-width="6"/>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 10: FOREGROUND ROCKS
-             ============================== -->
-        <div class="layer" data-speed="0.65" id="L-fg">
-          <div class="rock rock--1" id="rock1"></div>
-          <div class="rock rock--2" id="rock2"></div>
-          <div class="rock rock--3" id="rock3"></div>
-          <div class="rock rock--4" id="rock4"></div>
-          <div class="rock rock--5" id="rock5"></div>
-          <div class="fg-railing" id="fgRailing"></div>
+        <div class="scene__midground parallax-mid">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <g transform="translate(400,450)">
+              <circle vector-effect="non-scaling-stroke" cx="0" cy="0" r="160" fill="none" stroke="rgba(200,60,120,.2)" stroke-width="3"/>
+              <g id="turbine-blades">
+                <line vector-effect="non-scaling-stroke" x1="0" y1="-140" x2="0" y2="140" stroke="rgba(200,60,120,.18)" stroke-width="2.5"/>
+                <line vector-effect="non-scaling-stroke" x1="-140" y1="0" x2="140" y2="0" stroke="rgba(200,60,120,.18)" stroke-width="2.5"/>
+              </g>
+            </g>
+          </svg>
         </div>
 
-        <!-- ==============================
-             LAYER 11: TEXT OVERLAYS
-             Always on top, fade in/out per timeline
-             ============================== -->
-        <div class="layer layer--ui" data-speed="1.0" id="L-ui">
-          <!-- Section 1: Title -->
-          <div class="ui-block" id="ui-s1">
-            <h1 class="ui-title">PARALEAX</h1>
-            <p class="ui-subtitle">INNOVATIVE SOLUTIONS</p>
-          </div>
-
-          <!-- Section 2: Our Mission -->
-          <div class="ui-block" id="ui-s2">
-            <h2 class="ui-heading">Our Mission</h2>
-            <div class="ui-divider"></div>
-            <p class="ui-body">At Paraleax, our purpose is to empower digital relationships through mobility. By designing and developing custom apps and mobile web-apps, we act as a guide — leading our clients through the process of building complex digital products.</p>
-            <p class="ui-body">By designing and developing custom apps and mobile web-apps, we act as a guide — leading our clients.</p>
-            <a href="#contact" class="ui-cta">Let's Build!</a>
-          </div>
-
-          <!-- Section 3: Our Advantages -->
-          <div class="ui-block" id="ui-s3">
-            <h2 class="ui-heading">Our Advantages</h2>
-            <div class="ui-divider"></div>
-            <div class="ui-features">
-              <div class="ui-feature">
-                <h3 class="ui-subheading">We've Been There.</h3>
-                <p class="ui-body">In just over four years we've founded our own start-up, built over 100 app projects for our clients, and created proprietary software to make our own business more efficient.</p>
-              </div>
-              <div class="ui-feature">
-                <h3 class="ui-subheading">Boldly Transparent.</h3>
-                <p class="ui-body">We know how easy it is for complex projects like custom applications to go overbudget. We don't want that to happen to you.</p>
-              </div>
+        <div class="scene__content scene__content--right" id="advantages-content">
+          <h2 class="section-heading">Our Advantages</h2>
+          <div class="section-divider"></div>
+          <div class="section-features">
+            <div class="section-feature">
+              <h3 class="section-subheading">We've Been There.</h3>
+              <p class="section-body">In just over four years we've founded our own start-up, built over 100 app projects for our clients, and created proprietary software to make our own business more efficient.</p>
+            </div>
+            <div class="section-feature">
+              <h3 class="section-subheading">Boldly Transparent.</h3>
+              <p class="section-body">We know how easy it is for complex projects like custom applications to go overbudget. We don't want that to happen to you.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <!-- Section 4: A Model For Success -->
-          <div class="ui-block" id="ui-s4">
-            <h2 class="ui-heading">A Model For Success.</h2>
-            <p class="ui-body">We've crafted a modular approach to conceptualizing, designing, implementing, and testing on custom software projects over time.</p>
-            <h3 class="ui-subheading">Attentiveness as a Priority.</h3>
-            <p class="ui-body">You and your project are important to us. Once we kick things off, you'll receive updates on your project in two ways.</p>
-          </div>
-
-          <!-- Section 5: Landscape -->
-          <div class="ui-block" id="ui-s5">
-            <h2 class="ui-heading-lg">Where Vision Meets Horizon</h2>
-            <p class="ui-body">The journey continues beyond the visible. We build for what's next.</p>
-          </div>
+    <!-- STAGE 04: MODEL FOR SUCCESS (Molten Energy) -->
+    <section class="chapter chapter--model" id="section-4">
+      <div class="scene">
+        <div class="scene__background parallax-slow">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <rect width="1920" height="1080" fill="#060412"/>
+          </svg>
         </div>
 
-      </div><!-- /canvas -->
-    </div><!-- /viewport -->
+        <div class="scene__midground parallax-mid" id="energy-streams">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <g>
+              <path vector-effect="non-scaling-stroke" class="energy-stream" id="stream2" d="M960,80 Q960,300 960,500 Q960,700 960,1080" fill="none" stroke="#FFAC43" stroke-width="12" opacity=".65"/>
+            </g>
+          </svg>
+        </div>
 
-  </div><!-- /scroll-track -->
+        <div class="scene__content scene__content--left" id="model-content">
+          <h2 class="section-heading">A Model For Success.</h2>
+          <p class="section-body">We've crafted a modular approach to conceptualizing, designing, implementing, and testing on custom software projects over time.</p>
+          <h3 class="section-subheading">Attentiveness as a Priority.</h3>
+          <p class="section-body">You and your project are important to us. Once we kick things off, you'll receive updates on your project in two ways.</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- FOOTER -->
+    <!-- STAGE 05: LANDSCAPE FINALE (Sunset Ocean) -->
+    <section class="chapter chapter--landscape" id="section-5">
+      <div class="scene">
+        <div class="scene__background parallax-slow">
+          <svg class="scene-svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <linearGradient id="sunsetSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1C1236"/>
+                <stop offset="55%" stop-color="#FFAC43"/>
+                <stop offset="100%" stop-color="#120B29"/>
+              </linearGradient>
+            </defs>
+            <rect width="1920" height="1080" fill="url(#sunsetSky)"/>
+            <circle id="sunsetSun" cx="600" cy="380" r="60" fill="#FFAC43" opacity=".6"/>
+          </svg>
+        </div>
+
+        <div class="scene__content scene__content--center" id="landscape-content">
+          <h2 class="section-heading-lg">Where Vision Meets Horizon</h2>
+          <p class="section-body" style="max-width:400px;margin:0 auto;">The journey continues beyond the visible. We build for what's next.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
   <footer class="footer" id="contact">
     <div class="footer__inner">
-      <svg viewBox="0 0 40 36" width="28" height="25" fill="currentColor"><polygon points="20,0 40,36 0,36"/></svg>
-      <p class="footer__text">Crafting immersive digital worlds, one pixel at a time.</p>
-      <div class="footer__links">
-        <a href="#" class="footer__link">Our Story</a>
-        <a href="#" class="footer__link">Clients</a>
-        <a href="#" class="footer__link">Portfolio</a>
-        <a href="#" class="footer__link">Blog</a>
-        <a href="#contact" class="footer__link footer__link--btn">Contact</a>
-      </div>
       <p class="footer__copy">&copy; 2026 Paraleax. All rights reserved.</p>
     </div>
   </footer>
